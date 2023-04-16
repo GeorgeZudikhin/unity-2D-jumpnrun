@@ -12,15 +12,25 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 0.5f;
     public int basicAttackDamage = 20;
 
+    public float basicAttackRate = 1f;  ///  ( 1 / attackRate )
+    float nextAttackTime = 0f;
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if(Time.time >= nextAttackTime)
         {
-            Debug.Log("Player Pressed K.");
-            BasicAttack();
-            Debug.Log("Attack function ended.");
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                Debug.Log("Player Pressed K.");
+                
+                BasicAttack();
+                nextAttackTime = Time.time + 1f / basicAttackRate;
+
+                Debug.Log("Attack function ended.");
+            }
         }
+        
     }
 
     void BasicAttack()
