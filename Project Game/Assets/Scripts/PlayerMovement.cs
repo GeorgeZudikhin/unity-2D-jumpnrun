@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D controller;
     public Animator animator;
+
+    public CoinManager cm; 
     
     public float runSpeed = 40f;
 
@@ -53,4 +55,15 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            Destroy(other.gameObject); 
+            cm.coinCount++; 
+        }
+    }
 }
+
+// col.gameObject.SetActive(false);
