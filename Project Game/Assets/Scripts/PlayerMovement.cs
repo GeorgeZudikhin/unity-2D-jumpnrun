@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     bool crouch = false;
 
+    private bool m_DoubleJumped = false;
+
     // Update is called once per frame
     void Update()
     {
@@ -24,8 +26,20 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            jump = true;
-            animator.SetBool("IsJumping", true);
+            if (controller.m_Grounded)
+            {
+                // Player is on the ground and wants to jump
+                jump = true;
+                animator.SetBool("IsJumping", true);
+                m_DoubleJumped = false; // Reset double jump flag on ground jump
+            }
+            else if (!m_DoubleJumped)
+            {
+                // Player is in the air and wants to double jump
+                jump = true;
+                animator.SetBool("IsJumping", true);
+                m_DoubleJumped = true; // Set double jump flag
+            }
         }
 
         if(Input.GetButtonDown("Crouch"))
@@ -43,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnLanding()
     {
         animator.SetBool("IsJumping", false);
+        m_DoubleJumped = false; // Reset double jump flag on landing
     }
 
     public void OnCrouching(bool isCrouching)
@@ -64,6 +79,6 @@ public class PlayerMovement : MonoBehaviour
             cm.coinCount++; 
         }
     }
+    
 }
 
-// col.gameObject.SetActive(false);

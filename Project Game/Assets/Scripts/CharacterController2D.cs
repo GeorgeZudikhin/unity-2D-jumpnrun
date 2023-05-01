@@ -15,11 +15,12 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
-	private bool m_Grounded;            // Whether or not the player is grounded.
+	public bool m_Grounded;            // Whether or not the player is grounded
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
+	private bool m_DoubleJumped = false;
 
 	[Header("Events")]
 	[Space]
@@ -48,8 +49,7 @@ public class CharacterController2D : MonoBehaviour
 		bool wasGrounded = m_Grounded;
 		m_Grounded = false;
 
-		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
-		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
+		// Check for ground collision
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
 		for (int i = 0; i < colliders.Length; i++)
 		{
@@ -57,7 +57,10 @@ public class CharacterController2D : MonoBehaviour
 			{
 				m_Grounded = true;
 				if (!wasGrounded)
+				{
 					OnLandEvent.Invoke();
+					m_DoubleJumped = false; // Reset double jump flag on landing
+				}
 			}
 		}
 	}
@@ -128,12 +131,20 @@ public class CharacterController2D : MonoBehaviour
 		// If the player should jump...
 		if (m_Grounded && jump)
 		{
-			// Add a vertical force to the player.
+			// Player is on the ground and wants to jump
 			m_Grounded = false;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			m_DoubleJumped = false; // Reset double jump flag
 		}
-	}
+		else if (!m_Grounded && !m_DoubleJumped && jump)
+		{
+			// Player is in the air and wants to double jump
+			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0f);
+			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			m_DoubleJumped = true; // Set double jump flag
+		}
 
+	}
 
 	private void Flip()
 	{
@@ -145,4 +156,5 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
 }
