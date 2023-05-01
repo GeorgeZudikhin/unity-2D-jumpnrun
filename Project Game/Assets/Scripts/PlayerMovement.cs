@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
 
     public CoinManager cm; 
+    private bool m_CollectingCoin = false;
     
     public float runSpeed = 40f;
 
@@ -75,8 +76,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Coin"))
         {
+            m_CollectingCoin = true;
+        }
+    }
+    
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Coin") && m_CollectingCoin)
+        {
             Destroy(other.gameObject); 
             cm.coinCount++; 
+            m_CollectingCoin = false;
         }
     }
     
