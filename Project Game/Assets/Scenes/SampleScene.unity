@@ -2478,8 +2478,8 @@ Tilemap:
   - first: {x: -21, y: -5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 39
-      m_TileSpriteIndex: 39
+      m_TileIndex: 12
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -3881,7 +3881,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: e92401761c8b2db4b82778f0918b67d8, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 3d4bf49a21390954390b8ec881e33674, type: 2}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 0d1a11297dd746148a5fed560271156b, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: e15132009521d4c43bf377caa0c38ee1, type: 2}
@@ -3935,7 +3935,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 42b1813e969f30145a54d2c8d5547691, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 3ad42e723f2680240855699ec5df8754, type: 2}
-  - m_RefCount: 13
+  - m_RefCount: 12
     m_Data: {fileID: 11400000, guid: 80219db3b5d41e04a806d71d8e6b11a9, type: 2}
   - m_RefCount: 10
     m_Data: {fileID: 11400000, guid: 3b77d64d338e56342bb89dcc487ba5ba, type: 2}
@@ -4186,7 +4186,7 @@ Tilemap:
     m_Data: {fileID: 21300158, guid: e6b6d08ce81654c3bb8887b055fb015d, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300194, guid: e6b6d08ce81654c3bb8887b055fb015d, type: 3}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: 21300216, guid: e6b6d08ce81654c3bb8887b055fb015d, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300386, guid: e6b6d08ce81654c3bb8887b055fb015d, type: 3}
@@ -4240,7 +4240,7 @@ Tilemap:
     m_Data: {fileID: 21300220, guid: e6b6d08ce81654c3bb8887b055fb015d, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300218, guid: e6b6d08ce81654c3bb8887b055fb015d, type: 3}
-  - m_RefCount: 13
+  - m_RefCount: 12
     m_Data: {fileID: 21300424, guid: e6b6d08ce81654c3bb8887b055fb015d, type: 3}
   - m_RefCount: 10
     m_Data: {fileID: 21300426, guid: e6b6d08ce81654c3bb8887b055fb015d, type: 3}
@@ -7062,6 +7062,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 993401071}
   m_CeilingCheck: {fileID: 1596357906}
   m_CrouchDisableCollider: {fileID: 1917929916}
+  m_Grounded: 0
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
