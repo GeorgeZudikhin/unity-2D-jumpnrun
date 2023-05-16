@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 33292
+  controlID: 158
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -94,8 +94,8 @@ MonoBehaviour:
     y: 0
     width: 792
     height: 807
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 47
+  controlID: 61
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 33291
+  controlID: 110
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 434
+  controlID: 111
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -387,7 +387,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 44460
+  m_LastSelectedObjectID: -3070
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -594,10 +594,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 3}
+      scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: ce8cfeff3c19ffff36aeffff8aaeffff16afffffc2afffff74b8ffff70ad00008aad000048ae000062ae0000c2ae0000
+      m_ExpandedIDs: 08f4ffff16f4ffff1af4ffffa4f4ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -902,9 +902,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -7.263979, y: -1.2571439, z: 0.31641108}
+    m_Target: {x: -2.240692, y: -0.8764952, z: 0.4092071}
     speed: 2
-    m_Value: {x: -7.263979, y: -1.2571439, z: 0.31641108}
+    m_Value: {x: -2.2522352, y: -0.9316467, z: 0.40677017}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -955,9 +955,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 6.5105386
+    m_Target: 5.1717052
     speed: 2
-    m_Value: 6.5105386
+    m_Value: 5.415398
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1024,22 +1024,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sound/BGM/xDeviruchi
+    - Assets/Scripts/Characters/Enemy
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Sound/BGM/xDeviruchi
+  - Assets/Scripts/Characters/Enemy
   m_LastFoldersGridSize: 16
   m_LastProjectPath: Q:\GitHub\project-game\Project Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 130}
-    m_SelectedIDs: 36dd0000
-    m_LastClickedID: 56630
-    m_ExpandedIDs: 0000000070aa00003ed3000042d3000046d30000b4db00004adc000002dd000018dd000036dd0000bcde000000ca9a3b
+    m_SelectedIDs: 386f0000
+    m_LastClickedID: 28472
+    m_ExpandedIDs: 00000000706e0000726e0000746e0000766e0000786e00007a6e00007c6e00007e6e0000806e0000826e0000c86e0000fc6e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1067,7 +1067,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 3c19ffff
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff0000000070aa0000
+    m_ExpandedIDs: 00000000706e0000726e0000746e0000766e0000786e00007a6e00007c6e00007e6e0000806e0000826e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1098,18 +1098,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c62300005e5d0000725d0000a692000012b9000006b90000deb800003c6600001c66000034680000be82ffff1078000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: xDeviruchi - And The Journey Begins
-      m_OriginalName: 'xDeviruchi - And The Journey Begins '
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 56660
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 13}
     m_CreateAssetUtility:
