@@ -325,6 +325,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 6788427672826411270}
   animator: {fileID: 1336640609081027966}
+  jumpSounds:
+  - {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
+  doubleJumpSounds:
+  - {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
+  landingSounds:
+  - {fileID: 8300000, guid: eaae8fe8d600e1f459f34aa5757fa3b8, type: 3}
   cm: {fileID: 0}
   runSpeed: 30
 --- !u!114 &8834573227442603030
@@ -376,6 +382,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2b2c5e4d16affd74db3aaa6066823541, type: 3}
   healSounds:
   - {fileID: 8300000, guid: f300f6f637051434a99e353b8ee75b79, type: 3}
+  - {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
   maxHealth: 100
   currentHealth: 100
 --- !u!1 &1439837692701182261

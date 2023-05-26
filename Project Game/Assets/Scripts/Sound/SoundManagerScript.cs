@@ -5,7 +5,12 @@ using UnityEngine;
 
 public class SoundManagerScript : MonoBehaviour
 {
-    public static AudioClip AttackSound, CollectCoinSound, JumpSound, EnemyDeathSound;
+    [SerializeField] private AudioClip[] AttackSounds;
+    [SerializeField] private AudioClip[] CollectCoinSounds;
+    [SerializeField] private AudioClip[] JumpSounds;
+    [SerializeField] private AudioClip[] EnemyDeathSounds;
+
+    private static AudioClip AttackSound, CollectCoinSound, JumpSound, EnemyDeathSound;
     static AudioSource audioSrc;
 
     void Start()
@@ -30,7 +35,7 @@ public class SoundManagerScript : MonoBehaviour
             audioSrc.PlayOneShot (CollectCoinSound);
             break;
 
-        case "Jump":
+        case "JumpSounds":
             audioSrc.PlayOneShot (JumpSound);
             break;
 

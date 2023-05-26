@@ -7,6 +7,11 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller;
     public Animator animator;
 
+    [Header("Sound Effects")]
+    [SerializeField] private AudioClip[] jumpSounds;
+    [SerializeField] private AudioClip[] doubleJumpSounds;
+    [SerializeField] private AudioClip[] landingSounds;
+
     public CoinManager cm; 
     private bool m_CollectingCoin = false;
     
@@ -30,7 +35,17 @@ public class PlayerMovement : MonoBehaviour
             if (controller.m_Grounded)
             {
                 // Player is on the ground and wants to jump
-                SoundManagerScript.PlaySound ("Jump");
+                if(jumpSounds.Length > 0)
+                {
+                    AudioSource.PlayClipAtPoint(
+                        jumpSounds[Random.Range(0, jumpSounds.Length-1)], //Which sound effect - (a random one)
+                        transform.position  //2D location from where it's heard
+                    );
+                }/*
+                else
+                {
+                    SoundManagerScript.PlaySound("Jump");
+                }*/
                 jump = true;
                 animator.SetBool("IsJumping", true);
                 m_DoubleJumped = false; // Reset double jump flag on ground jump
@@ -39,7 +54,17 @@ public class PlayerMovement : MonoBehaviour
             else if (!m_DoubleJumped)
             {
                 // Player is in the air and wants to double jump
-                SoundManagerScript.PlaySound ("Jump");
+                if (doubleJumpSounds.Length > 0)
+                {
+                    AudioSource.PlayClipAtPoint(
+                        doubleJumpSounds[Random.Range(0, doubleJumpSounds.Length - 1)], //Which sound effect - (a random one)
+                        transform.position  //2D location from where it's heard
+                    );
+                }/*
+                else
+                {
+                    SoundManagerScript.PlaySound("Jump");
+                }*/
                 jump = true;
                 animator.SetBool("IsJumping", true);
                 m_DoubleJumped = true; // Set double jump flag
@@ -63,6 +88,13 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetBool("IsJumping", false);
         m_DoubleJumped = false; // Reset double jump flag on landing
+        if (landingSounds.Length > 0)
+        {
+            AudioSource.PlayClipAtPoint(
+                landingSounds[Random.Range(0, landingSounds.Length - 1)], //Which sound effect - (a random one)
+                transform.position  //2D location from where it's heard
+            );
+        }
     }
 
     public void OnCrouching(bool isCrouching)
