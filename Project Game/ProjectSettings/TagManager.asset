@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Coin
   - CheckPoint
+  - Emerald
+  - Ruby
+  - Sapphire
   layers:
   - Default
   - TransparentFX

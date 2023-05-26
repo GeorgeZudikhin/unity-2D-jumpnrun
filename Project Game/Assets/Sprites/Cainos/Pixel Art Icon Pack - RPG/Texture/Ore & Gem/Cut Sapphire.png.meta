@@ -52,7 +52,7 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -104,11 +104,79 @@ TextureImporter:
   spriteSheet:
     serializedVersion: 2
     sprites: []
-    outline: []
+    outline:
+    - - {x: -10, y: 12}
+      - {x: -10, y: 11}
+      - {x: -11, y: 11}
+      - {x: -11, y: 10}
+      - {x: -12, y: 10}
+      - {x: -12, y: 8}
+      - {x: -13, y: 8}
+      - {x: -13, y: 4}
+      - {x: -12, y: 4}
+      - {x: -12, y: 1}
+      - {x: -11, y: 1}
+      - {x: -11, y: -2}
+      - {x: -10, y: -2}
+      - {x: -10, y: -4}
+      - {x: -9, y: -4}
+      - {x: -9, y: -5}
+      - {x: -8, y: -5}
+      - {x: -8, y: -7}
+      - {x: -7, y: -7}
+      - {x: -7, y: -8}
+      - {x: -6, y: -8}
+      - {x: -6, y: -9}
+      - {x: -5, y: -9}
+      - {x: -5, y: -10}
+      - {x: -4, y: -10}
+      - {x: -4, y: -11}
+      - {x: -3, y: -11}
+      - {x: -3, y: -12}
+      - {x: -1, y: -12}
+      - {x: -1, y: -13}
+      - {x: 3, y: -13}
+      - {x: 3, y: -14}
+      - {x: 6, y: -14}
+      - {x: 6, y: -13}
+      - {x: 8, y: -13}
+      - {x: 8, y: -12}
+      - {x: 10, y: -12}
+      - {x: 10, y: -11}
+      - {x: 11, y: -11}
+      - {x: 11, y: -9}
+      - {x: 12, y: -9}
+      - {x: 12, y: -7}
+      - {x: 13, y: -7}
+      - {x: 13, y: -3}
+      - {x: 12, y: -3}
+      - {x: 12, y: 1}
+      - {x: 11, y: 1}
+      - {x: 11, y: 2}
+      - {x: 10, y: 2}
+      - {x: 10, y: 3}
+      - {x: 9, y: 3}
+      - {x: 9, y: 5}
+      - {x: 8, y: 5}
+      - {x: 8, y: 6}
+      - {x: 7, y: 6}
+      - {x: 7, y: 8}
+      - {x: 6, y: 8}
+      - {x: 6, y: 9}
+      - {x: 5, y: 9}
+      - {x: 5, y: 10}
+      - {x: 4, y: 10}
+      - {x: 4, y: 11}
+      - {x: 2, y: 11}
+      - {x: 2, y: 12}
+      - {x: 0, y: 12}
+      - {x: 0, y: 13}
+      - {x: -7, y: 13}
+      - {x: -7, y: 12}
     physicsShape: []
     bones: []
     spriteID: 3fad5d09e421a1849908ea2e59340fb3
-    internalID: 0
+    internalID: -759761479
     vertices: []
     indices: 
     edges: []
