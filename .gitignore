@@ -59,4 +59,4 @@ sysinfo.txt
 crashlytics-build.properties
 
 # That annoying config cache file, that causes a conflict every time
-UserSettings/Layouts/default-2021.dwlt
+./UserSettings/Layouts/default-2021.dwlt
