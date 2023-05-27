@@ -123,6 +123,7 @@ public class SoundManager : MonoBehaviour
     // ========== Start of: BGM Functions ==========
     public static void StartLevelBGM()
     {
+        float introDuration = soundManager.startBGM.length;
         // Play the start part of the background music
         if(soundManager.startBGM != null)
         {
@@ -133,7 +134,7 @@ public class SoundManager : MonoBehaviour
         {
             soundManager.musicSource.clip = soundManager.loopBGM;
             soundManager.musicSource.loop = true;
-            soundManager.musicSource.Play();
+            soundManager.musicSource.PlayDelayed(introDuration);
         }
     }
     public static void PlayEndLevelBGM()
