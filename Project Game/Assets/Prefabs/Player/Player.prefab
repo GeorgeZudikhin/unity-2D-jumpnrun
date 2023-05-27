@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 653767747962109441}
   - component: {fileID: 8834573227442603030}
   - component: {fileID: 1336640609081027960}
+  - component: {fileID: 2094044003507160892}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -325,12 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 6788427672826411270}
   animator: {fileID: 1336640609081027966}
-  jumpSounds:
-  - {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
-  doubleJumpSounds:
-  - {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
-  landingSounds:
-  - {fileID: 8300000, guid: eaae8fe8d600e1f459f34aa5757fa3b8, type: 3}
+  animationHelper: {fileID: 2094044003507160892}
   cm: {fileID: 0}
   runSpeed: 30
 --- !u!114 &8834573227442603030
@@ -366,25 +362,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1336640609081027966}
-  deathSounds:
-  - {fileID: 8300000, guid: 52996367c027f894a80c0f3f17c00a03, type: 3}
-  - {fileID: 8300000, guid: 9a9f43e971388954a9521b6dd330413d, type: 3}
-  hitSounds:
-  - {fileID: 8300000, guid: c5b5f9d1e2023fa4e9ac7fb1d3600a4c, type: 3}
-  - {fileID: 8300000, guid: aecda938c23ab05429592a6424db3cc6, type: 3}
-  - {fileID: 8300000, guid: adc45099c0a74b24bacc57357ddca31c, type: 3}
-  - {fileID: 8300000, guid: 37a1e153e569f594aa3a69abaddee963, type: 3}
-  - {fileID: 8300000, guid: b5cfeac51836341479b470ad1ec7a586, type: 3}
-  - {fileID: 8300000, guid: 6e7098dfd548f514397f6cf2ec72b7b4, type: 3}
-  - {fileID: 8300000, guid: aaf6f4b298a3a15479272103106d9d0a, type: 3}
-  - {fileID: 8300000, guid: e36f8969eb514dd42bf5126a5116620d, type: 3}
-  - {fileID: 8300000, guid: 02f519c4978a0c54fa5204fd264a0fd0, type: 3}
-  - {fileID: 8300000, guid: 2b2c5e4d16affd74db3aaa6066823541, type: 3}
-  healSounds:
-  - {fileID: 8300000, guid: f300f6f637051434a99e353b8ee75b79, type: 3}
-  - {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
   maxHealth: 100
   currentHealth: 100
+--- !u!114 &2094044003507160892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336640609081027846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448f9e4380517954290a38d3cb597ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1439837692701182261
 GameObject:
   m_ObjectHideFlags: 0

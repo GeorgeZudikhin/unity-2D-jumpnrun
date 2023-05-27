@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Skeleton_A_Combat : MonoBehaviour
 {
+    // =//=//=//=//=//= Start of: Skeleton_A_Combat Class =//=//=//=//=//=
     //--------------------------------------------------
     // References
     private Animator animator;
     private Health playerHealth;
     private EnemyPatrol enemyPatrol;
-
-    [Header("Sound Effects")]
-    [SerializeField] private AudioClip[] attack1Sounds;
-    [SerializeField] private AudioClip[] attack2Sounds;
 
     [Header("Attack Parameters")]
     [SerializeField] private float attack1Cooldown = 1f;
@@ -32,10 +29,15 @@ public class Skeleton_A_Combat : MonoBehaviour
     [Header("Player Layer")]
     [SerializeField] private LayerMask playerLayer;
     //--------------------------------------------------
+    // =====/////===== Start of: Unity Lifecycle Functions =====/////=====
+     private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        enemyPatrol = GetComponentInParent<EnemyPatrol>();
+    }
 
-
-    // Start is called before the first frame update
     /*
+    // Start is called before the first frame update
     void Start()
     {
         // Find the player GameObject and get its tranform component
@@ -43,12 +45,6 @@ public class Skeleton_A_Combat : MonoBehaviour
         //playerTransform = player.transform;
     }
     */
-
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-        enemyPatrol = GetComponentInParent<EnemyPatrol>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -61,25 +57,11 @@ public class Skeleton_A_Combat : MonoBehaviour
             if (attack1CooldownTimer >= attack1Cooldown)
             {
                 attack1CooldownTimer = 0;
-                if (attack1Sounds.Length > 0)
-                {
-                    AudioSource.PlayClipAtPoint(
-                        attack1Sounds[Random.Range(0, attack1Sounds.Length - 1)], //Which sound effect - (a random one)
-                        transform.position  //2D location from where it's heard
-                    );
-                }
                 animator.SetTrigger("Attack1");
             }
             else if (attack2CooldownTimer >= attack2Cooldown)
             {
                 attack2CooldownTimer = 0;
-                if (attack2Sounds.Length > 0)
-                {
-                    AudioSource.PlayClipAtPoint(
-                        attack2Sounds[Random.Range(0, attack2Sounds.Length - 1)], //Which sound effect - (a random one)
-                        transform.position  //2D location from where it's heard
-                    );
-                }
                 animator.SetTrigger("Attack2");
             }
         }
@@ -90,7 +72,8 @@ public class Skeleton_A_Combat : MonoBehaviour
         }
 
     }
-
+    // =====/////===== End of: Unity Lifecycle Functions =====/////=====
+    // ========== Start of: Combat Logic Functions ==========
     private bool PlayerInSight()
     {
         RaycastHit2D hit = Physics2D.BoxCast(
@@ -150,4 +133,6 @@ public class Skeleton_A_Combat : MonoBehaviour
         GetComponent<Health>().enabled = false;
         this.enabled = false;
     }
+    // ========== End of: Combat Logic Functions ==========
+    // =//=//=//=//=//= End of: Skeleton_A_Combat Class =//=//=//=//=//=
 }

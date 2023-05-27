@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Settings : MonoBehaviour
+public class Settings
 {
     public float bgmVolume = 1f;
     public float sfxVolume = 1f;

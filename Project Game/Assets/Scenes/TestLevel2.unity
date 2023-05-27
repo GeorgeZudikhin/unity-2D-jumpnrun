@@ -1510,25 +1510,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a96dd7af52997347970fe5687972bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBasicAttack: []
-  playerSlideGround: []
-  playerSlideAttack: []
-  playerDash: []
-  playerDeath: []
-  playerJump: []
-  playerDoubleJump: []
-  playerHit: []
-  playerHeal: []
-  skeletonAttack1: []
-  skeletonAttack2: []
-  skeletonHit: []
-  skeletonDeath: []
-  skeletonHeal: []
+  playerBasicAttacks:
+  - {fileID: 8300000, guid: 13182107f288fdc47a11f9216c8f062b, type: 3}
+  - {fileID: 8300000, guid: 7053294e066eb1945baa4d9cc9194f15, type: 3}
+  - {fileID: 8300000, guid: 01999991d21504b5abb7a554bba05227, type: 3}
+  playerSlideGrounds:
+  - {fileID: 8300000, guid: c458b6714dab015479d507b21fd2cead, type: 3}
+  playerDashAttacks: []
+  playerDashes:
+  - {fileID: 8300000, guid: 323e15cfe809e114ab92c9f4b25e8bc2, type: 3}
+  playerDeaths:
+  - {fileID: 8300000, guid: 52996367c027f894a80c0f3f17c00a03, type: 3}
+  - {fileID: 8300000, guid: 9a9f43e971388954a9521b6dd330413d, type: 3}
+  playerJumps:
+  - {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
+  playerDoubleJumps:
+  - {fileID: 8300000, guid: f11db4559b3ffff45b62e9327fc5535d, type: 3}
+  playerLandings:
+  - {fileID: 8300000, guid: eaae8fe8d600e1f459f34aa5757fa3b8, type: 3}
+  playerHits:
+  - {fileID: 8300000, guid: c5b5f9d1e2023fa4e9ac7fb1d3600a4c, type: 3}
+  - {fileID: 8300000, guid: aecda938c23ab05429592a6424db3cc6, type: 3}
+  - {fileID: 8300000, guid: adc45099c0a74b24bacc57357ddca31c, type: 3}
+  - {fileID: 8300000, guid: 37a1e153e569f594aa3a69abaddee963, type: 3}
+  - {fileID: 8300000, guid: b5cfeac51836341479b470ad1ec7a586, type: 3}
+  - {fileID: 8300000, guid: 6e7098dfd548f514397f6cf2ec72b7b4, type: 3}
+  - {fileID: 8300000, guid: aaf6f4b298a3a15479272103106d9d0a, type: 3}
+  - {fileID: 8300000, guid: e36f8969eb514dd42bf5126a5116620d, type: 3}
+  - {fileID: 8300000, guid: 02f519c4978a0c54fa5204fd264a0fd0, type: 3}
+  - {fileID: 8300000, guid: 2b2c5e4d16affd74db3aaa6066823541, type: 3}
+  playerHeals:
+  - {fileID: 8300000, guid: f300f6f637051434a99e353b8ee75b79, type: 3}
+  skeletonAttacks1:
+  - {fileID: 8300000, guid: 13182107f288fdc47a11f9216c8f062b, type: 3}
+  - {fileID: 8300000, guid: 7053294e066eb1945baa4d9cc9194f15, type: 3}
+  skeletonAttacks2:
+  - {fileID: 8300000, guid: 1785fff83652f42399d9b2017b05656c, type: 3}
+  skeletonHits:
+  - {fileID: 8300000, guid: 28035043174d44f928d428fc44f59150, type: 3}
+  - {fileID: 8300000, guid: f066f3ebedc79dc429b921d5076e5491, type: 3}
+  - {fileID: 8300000, guid: 5f81bdff582c2fc4488e1129bc037245, type: 3}
+  skeletonDeaths:
+  - {fileID: 8300000, guid: e40a38aaf1c62e4458f0cf1b7c426d16, type: 3}
+  skeletonHeals:
+  - {fileID: 8300000, guid: 7a9de5c4d998126449cf964a6b27a8b0, type: 3}
   fullBGM: {fileID: 8300000, guid: 1230178fc946ff84c8dd3b6f51e81d21, type: 3}
   startBGM: {fileID: 8300000, guid: c188005e75b64544cb5eada23be14b2b, type: 3}
   loopBGM: {fileID: 8300000, guid: e1b20d7f9f7dc9647b2d1808a8fc8984, type: 3}
   endBGM: {fileID: 8300000, guid: e9ffb0466c429f142ac121f817c6e8aa, type: 3}
   gameOverBGM: {fileID: 8300000, guid: e26774dd5da223b4c85e8a27d195e479, type: 3}
+  buttonPress: {fileID: 8300000, guid: 35cf7766e9e2aa542811e896fde57989, type: 3}
+  launch: {fileID: 8300000, guid: c5cb2ac29e89dbf43a9b644caaad45e6, type: 3}
+  quit: {fileID: 8300000, guid: 7cc057bed53baf34799f52aab3c84800, type: 3}
   playerGroup: {fileID: 8187981191874859709, guid: 45bf0b5fc8e26ff4e86d646d74ae367c, type: 2}
   enemyGroup: {fileID: 5182012270608529304, guid: 45bf0b5fc8e26ff4e86d646d74ae367c, type: 2}
   sceneGroup: {fileID: -5667075920368368418, guid: 45bf0b5fc8e26ff4e86d646d74ae367c, type: 2}
@@ -13831,15 +13864,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4965303653468236570, guid: de5eddc55f96faa44affa7d54e15f10f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4965303653468236570, guid: de5eddc55f96faa44affa7d54e15f10f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4965303653468236570, guid: de5eddc55f96faa44affa7d54e15f10f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4965303653468236570, guid: de5eddc55f96faa44affa7d54e15f10f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -13906,6 +13939,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3977856330878176610, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 636751135}
     - target: {fileID: 9216069793290059046, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}
       propertyPath: m_Name
       value: Skeleton_A_1

@@ -8,11 +8,6 @@ public class Health : MonoBehaviour
     // References
     [SerializeField] private Animator animator;
 
-    [Header("Sound Effects")]
-    [SerializeField] private AudioClip[] deathSounds;
-    [SerializeField] private AudioClip[] hitSounds;
-    [SerializeField] private AudioClip[] healSounds;
-
     [Header("Health")]
     public int maxHealth = 100;
     public int currentHealth;
@@ -36,16 +31,6 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        // Play Hit Sound
-        if (hitSounds.Length > 0)
-        {
-            int randomIndex = Random.Range(0, hitSounds.Length - 1);
-
-            AudioSource.PlayClipAtPoint(
-                hitSounds[randomIndex], //Which sound effect - (a random one)
-                transform.position  //2D location from where it's heard
-            );
-        }
         //Reduce current Health
         currentHealth -= damage;
         Debug.Log(gameObject.name + " took " + damage + " damage.");
@@ -62,16 +47,6 @@ public class Health : MonoBehaviour
 
     public void HealDamage(int heal)
     {
-        // Play Heal Sound
-        if (healSounds.Length > 0)
-        {
-            int randomIndex = Random.Range(0, healSounds.Length - 1);
-
-            AudioSource.PlayClipAtPoint(
-                healSounds[randomIndex], //Which sound effect - (a random one)
-                transform.position  //2D location from where it's heard
-            );
-        }
         // Heal the character
         currentHealth += heal;
         if (currentHealth > maxHealth)
@@ -97,17 +72,6 @@ public class Health : MonoBehaviour
     void Die()
     {
         Debug.Log(gameObject.name + "died.");
-
-        // Play Death Sound
-        if (deathSounds.Length > 0)
-        {
-            int randomIndex = Random.Range(0, deathSounds.Length - 1);
-
-            AudioSource.PlayClipAtPoint(
-                deathSounds[randomIndex], //Which sound effect - (a random one)
-                transform.position  //2D location from where it's heard
-            );
-        }
         // Death animation
         animator.SetBool("IsDead", true);
         /// NOTE: death animation has to contain an event trigger,
@@ -117,5 +81,9 @@ public class Health : MonoBehaviour
         // because it is unique for every character.
         // Player, enemies, bosses die in different ways.
     }
+
+    // ========== Start of: Sound Effect Helper Functions ==========
+    //individualizing with combat scripts
+    // ========== End of: Sound Effect Helper Functions ==========
 
 }
