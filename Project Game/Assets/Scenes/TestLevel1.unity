@@ -15117,7 +15117,7 @@ PrefabInstance:
     - target: {fileID: 653767747962109441, guid: de5eddc55f96faa44affa7d54e15f10f, type: 3}
       propertyPath: cm
       value: 
-      objectReference: {fileID: 1045785381}
+      objectReference: {fileID: 1336640608314565824}
     - target: {fileID: 882404946893979576, guid: de5eddc55f96faa44affa7d54e15f10f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -15174,8 +15174,39 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7314485581840313603, guid: de5eddc55f96faa44affa7d54e15f10f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: de5eddc55f96faa44affa7d54e15f10f, type: 3}
+--- !u!114 &1336640608314565822 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1336640609525597308, guid: de5eddc55f96faa44affa7d54e15f10f, type: 3}
+  m_PrefabInstance: {fileID: 1336640608314565821}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1336640608314565823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5230160477915786594, guid: de5eddc55f96faa44affa7d54e15f10f, type: 3}
+  m_PrefabInstance: {fileID: 1336640608314565821}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1336640608314565824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336640608314565823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8527018bfe6674b8a0c3e40fca1789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinCount: 0
+  coinText: {fileID: 1336640608314565822}
 --- !u!1001 &5752922234857012277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15225,6 +15256,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1285393107852211502, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4554959030302472465, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4554959030302472465, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}
+      propertyPath: m_FlipY
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9216069793290059046, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}

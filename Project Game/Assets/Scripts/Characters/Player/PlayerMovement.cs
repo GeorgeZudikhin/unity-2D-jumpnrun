@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool m_DoubleJumped = false;
 
+    // =====/////===== Start of: Unity Lifecycle Functions =====/////=====
     // Update is called once per frame
     void Update()
     {
@@ -58,6 +59,32 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        jump = false;
+    }
+
+    // ===== Collision Detection
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            m_CollectingCoin = true;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Coin") && m_CollectingCoin)
+        {
+            Destroy(other.gameObject);
+            cm.coinCount++;
+            m_CollectingCoin = false;
+            SoundManager.PlayCollectCoin(transform.position);
+        }
+    }
+    // =====/////===== End of: Unity Lifecycle Functions =====/////=====
     public void OnLanding()
     {
         animator.SetBool("IsJumping", false);
@@ -70,30 +97,9 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsCrouching", isCrouching);
     }
 
-     void FixedUpdate()
-    {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
-        jump = false;
-    }
+     
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Coin"))
-        {
-            m_CollectingCoin = true;
-        }
-    }
     
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Coin") && m_CollectingCoin)
-        {
-            Destroy(other.gameObject); 
-            cm.coinCount++; 
-            m_CollectingCoin = false;
-            SoundManagerScript.PlaySound("CollectCoin");
-        }
-    }
     
 }
 
