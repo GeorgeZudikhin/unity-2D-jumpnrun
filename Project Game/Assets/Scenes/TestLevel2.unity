@@ -1153,11 +1153,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1285393107852211502, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.578359
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1285393107852211502, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2069207
+      value: 0.79
       objectReference: {fileID: 0}
     - target: {fileID: 1285393107852211502, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1193,11 +1193,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4229740419254305499, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.7
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 4296816203858940711, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.26
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 9216069793290059046, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}
       propertyPath: m_Name
@@ -13724,7 +13724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1285393107852211502, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2710679
+      value: -0.71
       objectReference: {fileID: 0}
     - target: {fileID: 1285393107852211502, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13762,6 +13762,14 @@ PrefabInstance:
       propertyPath: soundManager
       value: 
       objectReference: {fileID: 636751135}
+    - target: {fileID: 4229740419254305499, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296816203858940711, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9216069793290059046, guid: 1cbd121b40d90a942882a07d183987d5, type: 3}
       propertyPath: m_Name
       value: Skeleton_A_1
