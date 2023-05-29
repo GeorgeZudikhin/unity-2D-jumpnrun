@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // =//=//=//=//=//= Start of: PlayerMovement Class =//=//=//=//=//=
     public CharacterController2D controller;
     public Animator animator;
     public PlayerAnimationHelper animationHelper;
@@ -85,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     // =====/////===== End of: Unity Lifecycle Functions =====/////=====
+    // ========== Start of: Event Functions ==========
     public void OnLanding()
     {
         animator.SetBool("IsJumping", false);
@@ -96,10 +98,12 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetBool("IsCrouching", isCrouching);
     }
-
-     
-
     
-    
+    public void OnDash(bool isDashing)
+    {
+        animator.SetBool("IsDashing", isDashing);
+    }
+
+    // ========== End of: Event Functions ==========
+    // =//=//=//=//=//= End of: PlayerMovement Class =//=//=//=//=//=
 }
-

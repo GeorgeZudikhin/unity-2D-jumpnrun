@@ -16,6 +16,7 @@ public class PlayerCombat : MonoBehaviour
     public float basicAttackRate = 1f;  ///  ( 1 / attackRate )
     float nextAttackTime = 0f;
 
+    // =====/////===== Start of: Unity Lifecycle Functions =====/////=====
     // Update is called once per frame
     void Update()
     {
@@ -33,7 +34,8 @@ public class PlayerCombat : MonoBehaviour
         }
         
     }
-
+    // =====/////===== End of: Unity Lifecycle Functions =====/////=====
+    // ========== Start of: Action Functions and their Helpers ==========
     void BasicAttack()
     {
         // Play an attack animation
@@ -77,5 +79,6 @@ public class PlayerCombat : MonoBehaviour
         
         //GetComponent<Collider2D>().enabled = false;
     }
+    // ========== End of: Action Functions and their Helpers ==========
     // =//=//=//=//=//= End of: PlayerCombat Class =//=//=//=//=//=
 }

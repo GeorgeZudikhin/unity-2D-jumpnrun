@@ -5,10 +5,11 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
+	// =//=//=//=//=//= Start of: CharacterController2D Class =//=//=//=//=//=
 	[SerializeField] private float m_JumpForce = 400f;							// Amount of force added when the player jumps.
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
-	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
+	[SerializeField] private bool m_AirControl = true;							// Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
@@ -24,15 +25,19 @@ public class CharacterController2D : MonoBehaviour
 
 	[Header("Events")]
 	[Space]
-
 	public UnityEvent OnLandEvent;
 
 	[System.Serializable]
-	public class BoolEvent : UnityEvent<bool> { }
+	public class BoolEvent : UnityEvent<bool> { }	// Creates a class BoolEvent, which inherits from UnityEvent, so that there is a UnityEvent that accepts a bool ... UnityEvent<bool>
 
-	public BoolEvent OnCrouchEvent;
+	public BoolEvent OnCrouchEvent;	// Makes use of the newly defined BoolEvent class to create an OnCrouch-Event.
 	private bool m_wasCrouching = false;
 
+	public BoolEvent OnDashEvent;	// Adds an Event for the Dash move.
+	private bool m_wasDashing = false;
+
+	// =====/////===== Start of: Unity Lifecycle Functions =====/////=====
+	// Awake gets called if the Script even exists, it initializes whether the script is active or not. (can be used like a "high priority" constructor)
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -43,7 +48,7 @@ public class CharacterController2D : MonoBehaviour
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
 	}
-
+	// FixedUpdate is a Unity function that is called at a fixed interval, typically synchronized with the physics engine, and is used for performing physics-related calculations and updates.
 	private void FixedUpdate()
 	{
 		bool wasGrounded = m_Grounded;
@@ -65,7 +70,8 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-
+	// =====/////===== End of: Unity Lifecycle Functions =====/////=====
+	// ========== Start of: Character Control Functions ==========
 	public void Move(float move, bool crouch, bool jump)
 	{
 		// If crouching, check to see if the character can stand up
@@ -156,5 +162,6 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
-
+	// ========== End of: Character Control Functions ==========
+	// =//=//=//=//=//= Start of: CharacterController2D Class =//=//=//=//=//=
 }
