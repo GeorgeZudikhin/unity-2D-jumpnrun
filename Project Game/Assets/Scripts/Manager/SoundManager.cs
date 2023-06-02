@@ -14,6 +14,14 @@ public class SoundManager : MonoBehaviour
         get { return soundManager; }
     }
 
+    [Header("Background Music")]
+    [SerializeField] private AudioClip fullBGM;
+    [SerializeField] private AudioClip startBGM;
+    [SerializeField] private AudioClip loopBGM;
+    [SerializeField] private AudioClip endBGM;
+    [SerializeField] private AudioClip gameOverBGM;
+    [SerializeField] bool use_full_BGM;
+
     [Header("Player")]
     [SerializeField] private AudioClip[] playerBasicAttacks;
     [SerializeField] private AudioClip[] playerSlideGrounds;
@@ -32,13 +40,6 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip[] skeletonHits;
     [SerializeField] private AudioClip[] skeletonDeaths;
     [SerializeField] private AudioClip[] skeletonHeals;
-
-    [Header("Background Music")]
-    [SerializeField] private AudioClip fullBGM;
-    [SerializeField] private AudioClip startBGM;
-    [SerializeField] private AudioClip loopBGM;
-    [SerializeField] private AudioClip endBGM;
-    [SerializeField] private AudioClip gameOverBGM;
 
     [Header("Scene")]
     [SerializeField] private AudioClip collectCoin;
@@ -123,18 +124,30 @@ public class SoundManager : MonoBehaviour
     // ========== Start of: BGM Functions ==========
     public static void StartLevelBGM()
     {
-        float introDuration = soundManager.startBGM.length;
-        // Play the start part of the background music
-        if(soundManager.startBGM != null)
+        if(soundManager.use_full_BGM == true)
         {
-            soundManager.musicSource.PlayOneShot(soundManager.startBGM);
+            if(soundManager.fullBGM != null)
+            {
+                soundManager.musicSource.clip = soundManager.fullBGM;
+                soundManager.musicSource.loop = true;
+                soundManager.musicSource.Play();
+            }
         }
-        // Play the loop part of the background music - in loop obviously.
-        if(soundManager.loopBGM != null)
+        else
         {
-            soundManager.musicSource.clip = soundManager.loopBGM;
-            soundManager.musicSource.loop = true;
-            soundManager.musicSource.PlayDelayed(introDuration);
+            float introDuration = soundManager.startBGM != null ? soundManager.startBGM.length : 0f;
+            // Play the start part of the background music
+            if (soundManager.startBGM != null)
+            {
+                soundManager.musicSource.PlayOneShot(soundManager.startBGM);
+            }
+            // Play the loop part of the background music - in loop obviously.
+            if (soundManager.loopBGM != null)
+            {
+                soundManager.musicSource.clip = soundManager.loopBGM;
+                soundManager.musicSource.loop = true;
+                soundManager.musicSource.PlayDelayed(introDuration);
+            }
         }
     }
     public static void PlayEndLevelBGM()
