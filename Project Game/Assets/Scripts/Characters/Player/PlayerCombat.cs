@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class PlayerCombat : MonoBehaviour
 
     public float basicAttackRate = 1f;  ///  ( 1 / attackRate )
     float nextAttackTime = 0f;
+
+    public static event Action OnPlayerDeath;
 
     // =====/////===== Start of: Unity Lifecycle Functions =====/////=====
     // Update is called once per frame
@@ -73,11 +77,20 @@ public class PlayerCombat : MonoBehaviour
     public void Death()
     {
         Debug.Log("The Player died!");
-        ///TODO:
-        /// Disable the player and their physics,
-        /// Open Game Over menu screen and respawn if player wants to retry
-        
-        //GetComponent<Collider2D>().enabled = false;
+
+        GameManager.isPlayerAlive = false;
+
+        GetComponent<PlayerMovement>().enabled = false;
+        GetComponent<CharacterController2D>().enabled = false;
+        GetComponent<PlayerCombat>().enabled = false;
+
+        Invoke(nameof(LoadDeathMenu), 0.5f);
+    }
+
+    public void LoadDeathMenu()
+    {
+        OnPlayerDeath?.Invoke();
+        Time.timeScale = 0f;
     }
     // ========== End of: Action Functions and their Helpers ==========
     // =//=//=//=//=//= End of: PlayerCombat Class =//=//=//=//=//=

@@ -9,6 +9,7 @@ TagManager:
   - Emerald
   - Ruby
   - Sapphire
+  - RespawnDeath
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - UI
   - Enemies
   - CheckPoints
-  - 
+  - InstantKillSpikes
   - 
   - 
   - 

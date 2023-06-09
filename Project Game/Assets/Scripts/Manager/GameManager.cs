@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     float bgmVolume = 1f;
     float sfxVolume = 1f;
 
+    public static bool isPlayerAlive = true;
+
     // =====/////===== Start of: Unity Lifecycle Functions =====/////=====
     // Awake is called before the script starts, regardless if active.
     void Awake()

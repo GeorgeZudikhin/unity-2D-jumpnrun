@@ -34,10 +34,11 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_wasCrouching = false;
 
 	public BoolEvent OnDashEvent;	// Adds an Event for the Dash move.
-	private bool m_wasDashing = false;
+	//private bool m_wasDashing = false;
 
 	// =====/////===== Start of: Unity Lifecycle Functions =====/////=====
 	// Awake gets called if the Script even exists, it initializes whether the script is active or not. (can be used like a "high priority" constructor)
+
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();

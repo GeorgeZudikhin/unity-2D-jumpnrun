@@ -69,7 +69,7 @@ public class Health : MonoBehaviour
     }
     */
 
-    void Die()
+    public void Die()
     {
         Debug.Log(gameObject.name + "died.");
         // Death animation

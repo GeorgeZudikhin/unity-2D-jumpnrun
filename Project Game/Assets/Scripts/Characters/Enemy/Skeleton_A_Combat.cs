@@ -49,6 +49,10 @@ public class Skeleton_A_Combat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.isPlayerAlive)
+        {
+            return;
+        }
         attack1CooldownTimer += Time.deltaTime;
         attack2CooldownTimer += Time.deltaTime;
         if (PlayerInSight())
