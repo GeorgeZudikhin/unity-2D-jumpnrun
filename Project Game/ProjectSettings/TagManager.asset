@@ -10,6 +10,8 @@ TagManager:
   - Ruby
   - Sapphire
   - RespawnDeath
+  - HealthPotion
+  - Portal
   layers:
   - Default
   - TransparentFX

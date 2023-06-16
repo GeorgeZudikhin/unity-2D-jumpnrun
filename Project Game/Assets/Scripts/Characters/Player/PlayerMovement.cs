@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     public CoinManager cm; 
     private bool m_CollectingCoin = false;
+
+    private bool CollectingHealthPotion = false;
     
     public float runSpeed = 40f;
 
@@ -19,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     bool crouch = false;
 
     private bool m_DoubleJumped = false;
+
+    public static event Action OnGameEnd;
 
     // =====/////===== Start of: Unity Lifecycle Functions =====/////=====
     // Update is called once per frame
@@ -73,6 +78,15 @@ public class PlayerMovement : MonoBehaviour
         {
             m_CollectingCoin = true;
         }
+        if (other.gameObject.CompareTag("HealthPotion"))
+        {
+            CollectingHealthPotion = true;
+        }
+        if (other.gameObject.CompareTag("Portal"))
+        {
+            OnGameEnd?.Invoke();
+            Time.timeScale = 0f;
+        }
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -84,7 +98,15 @@ public class PlayerMovement : MonoBehaviour
             m_CollectingCoin = false;
             SoundManager.PlayCollectCoin(transform.position);
         }
+        if (other.gameObject.CompareTag("HealthPotion") && CollectingHealthPotion)
+        {
+            Destroy(other.gameObject);
+            CollectingHealthPotion = false;
+            GetComponent<Health>().HealDamage(20);
+            SoundManager.PlayCollectCoin(transform.position);
+        }
     }
+
     // =====/////===== End of: Unity Lifecycle Functions =====/////=====
     // ========== Start of: Event Functions ==========
     public void OnLanding()
