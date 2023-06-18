@@ -44,6 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a96dd7af52997347970fe5687972bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullBGM: {fileID: 8300000, guid: 1230178fc946ff84c8dd3b6f51e81d21, type: 3}
+  startBGM: {fileID: 8300000, guid: c188005e75b64544cb5eada23be14b2b, type: 3}
+  loopBGM: {fileID: 8300000, guid: e1b20d7f9f7dc9647b2d1808a8fc8984, type: 3}
+  endBGM: {fileID: 8300000, guid: e9ffb0466c429f142ac121f817c6e8aa, type: 3}
+  gameOverBGM: {fileID: 8300000, guid: e26774dd5da223b4c85e8a27d195e479, type: 3}
+  use_full_BGM: 0
   playerBasicAttacks:
   - {fileID: 8300000, guid: 13182107f288fdc47a11f9216c8f062b, type: 3}
   - {fileID: 8300000, guid: 7053294e066eb1945baa4d9cc9194f15, type: 3}
@@ -89,12 +95,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e40a38aaf1c62e4458f0cf1b7c426d16, type: 3}
   skeletonHeals:
   - {fileID: 8300000, guid: 7a9de5c4d998126449cf964a6b27a8b0, type: 3}
-  fullBGM: {fileID: 8300000, guid: 1230178fc946ff84c8dd3b6f51e81d21, type: 3}
-  startBGM: {fileID: 8300000, guid: c188005e75b64544cb5eada23be14b2b, type: 3}
-  loopBGM: {fileID: 8300000, guid: e1b20d7f9f7dc9647b2d1808a8fc8984, type: 3}
-  endBGM: {fileID: 8300000, guid: e9ffb0466c429f142ac121f817c6e8aa, type: 3}
-  gameOverBGM: {fileID: 8300000, guid: e26774dd5da223b4c85e8a27d195e479, type: 3}
   collectCoin: {fileID: 8300000, guid: abdbbfd33a46f4549987385f85c536b5, type: 3}
+  collectPotion: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
   buttonPress: {fileID: 8300000, guid: 35cf7766e9e2aa542811e896fde57989, type: 3}
   launch: {fileID: 8300000, guid: c5cb2ac29e89dbf43a9b644caaad45e6, type: 3}
   quit: {fileID: 8300000, guid: 7cc057bed53baf34799f52aab3c84800, type: 3}

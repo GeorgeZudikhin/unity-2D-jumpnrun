@@ -43,6 +43,7 @@ public class SoundManager : MonoBehaviour
 
     [Header("Scene")]
     [SerializeField] private AudioClip collectCoin;
+    [SerializeField] private AudioClip collectPotion;
 
     [Header("Menu")]
     [SerializeField] private AudioClip buttonPress;
@@ -327,6 +328,12 @@ public class SoundManager : MonoBehaviour
     public static void PlayCollectCoin(Vector2 position)
     {
         soundManager.sceneSource.clip = soundManager.collectCoin;
+        soundManager.sceneSource.Play();
+    }
+
+    public static void PlayCollectPotion(Vector2 position)
+    {
+        soundManager.sceneSource.clip = soundManager.collectPotion;
         soundManager.sceneSource.Play();
     }
     // ========== End of: Sound Effect Functions ==========

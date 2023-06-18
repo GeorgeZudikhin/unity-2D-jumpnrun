@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             CollectingHealthPotion = false;
             GetComponent<Health>().HealDamage(20);
-            SoundManager.PlayCollectCoin(transform.position);
+            SoundManager.PlayCollectPotion(transform.position);
         }
     }
 
