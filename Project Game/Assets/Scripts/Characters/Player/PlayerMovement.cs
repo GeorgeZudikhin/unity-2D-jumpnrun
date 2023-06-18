@@ -86,8 +86,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("Portal1"))
         {
-            SceneManager.LoadScene("NextLevelMenu");
-            Time.timeScale = 0f;
+            SceneManager.LoadScene("Level 2");
+            //Time.timeScale = 0f;
         }
         
         if (other.gameObject.CompareTag("Portal"))
