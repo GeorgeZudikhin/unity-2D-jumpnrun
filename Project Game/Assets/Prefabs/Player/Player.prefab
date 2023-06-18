@@ -364,6 +364,13 @@ MonoBehaviour:
   animationHelper: {fileID: 2094044003507160892}
   cm: {fileID: 3051993326693336950}
   runSpeed: 30
+  rb: {fileID: 5379935004293644813}
+  dashingPower: 24
+  dashPreparationTime: 0.2
+  dashingTime: 1
+  dashingCooldown: 1
+  tr: {fileID: 0}
+  nudgeForce: 5
 --- !u!114 &8834573227442603030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,7 +445,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439837692701182261}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.7299995, y: -0.029999971, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -890,7 +897,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3069371852404164482}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.7299995, y: 0.029999971, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

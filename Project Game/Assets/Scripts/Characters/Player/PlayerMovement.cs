@@ -24,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
 
     private bool m_DoubleJumped = false;
 
+    //[Header("Dash")]
+    //private bool canDash = true;
+    private bool isDashing = false;
+
     [SerializeField] private float nudgeForce = 5f;
 
     public static event Action OnGameEnd;
@@ -32,6 +36,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDashing)
+        {
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                animator.SetBool("IsDashAttacking", true);
+            }
+            return;
+        }
+
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
@@ -66,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
             crouch = false;
             //animator.SetBool("IsCrouching", false);
         }
+
     }
 
     void FixedUpdate()
@@ -144,13 +158,42 @@ public class PlayerMovement : MonoBehaviour
     public void OnCrouching(bool isCrouching)
     {
         animator.SetBool("IsCrouching", isCrouching);
-    }
-    
-    public void OnDash(bool isDashing)
-    {
-        animator.SetBool("IsDashing", isDashing);
+        if (isDashing)
+        {
+            animator.SetTrigger("GroundSlide");
+        }
     }
 
+    public void OnDash()
+    {
+        animator.SetBool("IsDashing", true);
+    }
+
+    public void OnDashEnd()
+    {
+        animator.SetBool("IsDashAttacking", false);
+        animator.SetBool("IsDashing", false);
+    }
+
+    /*
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        animator.SetBool("IsDashing", isDashing);
+        yield return new WaitForSeconds(dashPreparationTime);
+        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        //tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        //tr.emitting = false;
+        rb.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
+    }
+    */
     // ========== End of: Event Functions ==========
     // =//=//=//=//=//= End of: PlayerMovement Class =//=//=//=//=//=
 }
