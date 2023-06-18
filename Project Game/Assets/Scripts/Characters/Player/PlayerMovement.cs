@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool m_DoubleJumped = false;
 
+    [SerializeField] private float nudgeForce = 5f;
+
     public static event Action OnGameEnd;
 
     // =====/////===== Start of: Unity Lifecycle Functions =====/////=====
@@ -112,6 +114,21 @@ public class PlayerMovement : MonoBehaviour
             CollectingHealthPotion = false;
             GetComponent<Health>().HealDamage(20);
             SoundManager.PlayCollectCoin(transform.position);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Enemies"))
+        {
+            Vector3 playerPosition = transform.position;
+            Vector3 enemyPosition = collision.gameObject.transform.position;
+            if(playerPosition.y > enemyPosition.y)
+            {
+                Vector3 nudgeDirection = playerPosition - enemyPosition;
+                nudgeDirection.Normalize();
+                GetComponent<Rigidbody2D>().AddForce(nudgeDirection * nudgeForce, ForceMode2D.Impulse);
+            }
         }
     }
 
