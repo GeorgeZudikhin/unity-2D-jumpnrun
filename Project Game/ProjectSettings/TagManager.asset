@@ -13,6 +13,7 @@ TagManager:
   - HealthPotion
   - Portal
   - Portal1
+  - PlayerUI
   layers:
   - Default
   - TransparentFX

@@ -135,6 +135,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         gameManager.isGameOver = false;
         gameManager.totalGameTime = 0;
+        isPlayerAlive = true;
     }
     // ========== End of: Game Control ==========
 }

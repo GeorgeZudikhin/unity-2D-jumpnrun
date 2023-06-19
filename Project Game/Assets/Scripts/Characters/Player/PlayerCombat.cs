@@ -78,7 +78,7 @@ public class PlayerCombat : MonoBehaviour
     {
         Debug.Log("The Player died!");
 
-        GameManager.isPlayerAlive = false;
+        //GameManager.isPlayerAlive = false;
 
         GetComponent<PlayerMovement>().enabled = false;
         GetComponent<CharacterController2D>().enabled = false;
