@@ -25,8 +25,8 @@ public class PlayerMovement : MonoBehaviour
     private bool m_DoubleJumped = false;
 
     //[Header("Dash")]
-    //private bool canDash = true;
-    private bool isDashing = false;
+    private bool canDash = true;
+    private bool dashing = false;
 
     [SerializeField] private float nudgeForce = 5f;
 
@@ -36,17 +36,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDashing)
+        if (Input.GetButtonDown("Attack") && dashing)
         {
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                animator.SetBool("IsDashAttacking", true);
-            }
+            Debug.Log("DashAttack was triggered successfully!");
+            animator.SetBool("IsDashAttacking", true);
             return;
         }
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
         if (Input.GetButtonDown("Jump"))
@@ -80,11 +77,24 @@ public class PlayerMovement : MonoBehaviour
             //animator.SetBool("IsCrouching", false);
         }
 
+        if (Input.GetButtonDown("Dash"))
+        {
+            if(!dashing && canDash && !crouch)
+            {
+                animator.SetTrigger("Dash");
+                dashing = true;
+                canDash = false;
+                Debug.Log("Dash was triggered successfuly.");
+                return;
+            }
+            //controller.Dash();
+        }
+
     }
 
     void FixedUpdate()
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, dashing);
         jump = false;
     }
 
@@ -158,42 +168,44 @@ public class PlayerMovement : MonoBehaviour
     public void OnCrouching(bool isCrouching)
     {
         animator.SetBool("IsCrouching", isCrouching);
-        if (isDashing)
+        /*
+        if (dashing)
         {
             animator.SetTrigger("GroundSlide");
         }
+        */
     }
 
-    public void OnDash()
+    public void DashEnd()
     {
-        animator.SetBool("IsDashing", true);
-    }
-
-    public void OnDashEnd()
-    {
-        animator.SetBool("IsDashAttacking", false);
+        Debug.Log("Dash was ended.");
+        dashing = false;
         animator.SetBool("IsDashing", false);
-    }
-
-    /*
-    private IEnumerator Dash()
-    {
-        canDash = false;
-        isDashing = true;
-        float originalGravity = rb.gravityScale;
-        rb.gravityScale = 0f;
-        animator.SetBool("IsDashing", isDashing);
-        yield return new WaitForSeconds(dashPreparationTime);
-        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
-        //tr.emitting = true;
-        yield return new WaitForSeconds(dashingTime);
-        //tr.emitting = false;
-        rb.gravityScale = originalGravity;
-        isDashing = false;
-        yield return new WaitForSeconds(dashingCooldown);
+        //animator.SetBool("IsDashAttacking", false);
         canDash = true;
     }
-    */
+
+    public void OnDash(bool isDashing)
+    {
+        if(isDashing == true)
+        {
+            Debug.Log("isDashing was set to true.");
+        }else if(isDashing == false)
+        {
+            Debug.Log("isDashing was set to false.");
+        }
+        else
+        {
+            Debug.Log("isDashing is undefined.");
+        }
+        dashing = isDashing;
+        animator.SetBool("IsDashing", isDashing);
+        if (!isDashing)
+        {
+            DashEnd();
+        }
+    }
+
     // ========== End of: Event Functions ==========
     // =//=//=//=//=//= End of: PlayerMovement Class =//=//=//=//=//=
 }

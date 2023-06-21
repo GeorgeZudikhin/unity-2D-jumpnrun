@@ -12,11 +12,14 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint;
     public LayerMask enemyLayers;
 
-    public float attackRange = 0.5f;
-    public int basicAttackDamage = 20;
+    [SerializeField] private float attackRange = 0.5f;
+    [SerializeField] private int basicAttackDamage = 20;
+    [SerializeField] private int dashAttackDamage = 40;
 
-    public float basicAttackRate = 1f;  ///  ( 1 / attackRate )
-    float nextAttackTime = 0f;
+    [SerializeField] private float basicAttackRate = 1f;  ///  ( 1 / attackRate )
+    private float nextAttackTime = 0f;
+
+    private bool dashAttacking = false;
 
     public static event Action OnPlayerDeath;
 
@@ -24,11 +27,11 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time >= nextAttackTime)
+        if(Time.time >= nextAttackTime && !dashAttacking)
         {
-            if (Input.GetKeyDown(KeyCode.K))
+            if (Input.GetButtonDown("Attack"))
             {
-                Debug.Log("Player Pressed K.");
+                Debug.Log("Player Pressed Attack Button.");
                 
                 BasicAttack();
                 nextAttackTime = Time.time + 1f / basicAttackRate;
@@ -61,6 +64,30 @@ public class PlayerCombat : MonoBehaviour
             }
             
         }
+    }
+
+    public void DashAttack()
+    {
+        Debug.Log("Executed DashAttack.");
+        dashAttacking = true;
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        Debug.Log("Collider2D was filled with " + hitEnemies.Length + " enemies");
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            if (enemy.GetComponent<Health>() != null)
+            {
+                Debug.Log("We hit " + enemy.name + ".");
+                enemy.GetComponent<Health>().TakeDamage(dashAttackDamage);
+            }
+
+        }
+        //nextAttackTime = Time.time + 1f / basicAttackRate;
+        animator.SetBool("IsDashAttacking", false);
+    }
+
+    public void DashAttackEnd()
+    {
+        dashAttacking = false;
     }
 
     void OnDrawGizmosSelected()

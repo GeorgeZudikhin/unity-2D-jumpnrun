@@ -6,7 +6,8 @@ using UnityEngine.Events;
 public class CharacterController2D : MonoBehaviour
 {
 	// =//=//=//=//=//= Start of: CharacterController2D Class =//=//=//=//=//=
-	[SerializeField] private float m_JumpForce = 400f;							// Amount of force added when the player jumps.
+	[Header("Physics/Jump")]
+	[SerializeField] private float m_JumpForce = 500f;							// Amount of force added when the player jumps.
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = true;							// Whether or not a player can steer while jumping;
@@ -15,14 +16,15 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
 
-	/*
 	[Header("Dash")]
-	[SerializeField] private float dashSpeed = 12f;
-	[SerializeField] private float dashTimeStart = 0.5f;
-	[SerializeField] private float dashTime = 2.0f;
-	[SerializeField] private float dashTimeEnd = 0.5f;
-	[SerializeField] private float dashingCooldown = 1f;
-	*/
+	[SerializeField] private float dashDistance = 10f;
+	[SerializeField] private float dashSpeed = 40f;
+	[SerializeField] private float afterDashSpeed = 10f;
+	//private bool canDash = true;
+	//private bool isDashing = false;
+	//[SerializeField] private LayerMask enemeyLayer;
+	//private Coroutine dashCoroutine;
+	//private bool groundSliding = false;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	public bool m_Grounded;            // Whether or not the player is grounded
@@ -31,6 +33,7 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 	private bool m_DoubleJumped = false;
+	private bool m_wasCrouching = false;
 
 	[Header("Events")]
 	[Space]
@@ -40,7 +43,6 @@ public class CharacterController2D : MonoBehaviour
 	public class BoolEvent : UnityEvent<bool> { }	// Creates a class BoolEvent, which inherits from UnityEvent, so that there is a UnityEvent that accepts a bool ... UnityEvent<bool>
 
 	public BoolEvent OnCrouchEvent;	// Makes use of the newly defined BoolEvent class to create an OnCrouch-Event.
-	private bool m_wasCrouching = false;
 
 	public BoolEvent OnDashEvent;	// Adds an Event for the Dash move.
 	//private bool m_wasDashing = false;
@@ -57,6 +59,12 @@ public class CharacterController2D : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
+		
+		if(OnDashEvent == null)
+        {
+			OnDashEvent = new BoolEvent();
+        }
+		
 	}
 	// FixedUpdate is a Unity function that is called at a fixed interval, typically synchronized with the physics engine, and is used for performing physics-related calculations and updates.
 	private void FixedUpdate()
@@ -82,7 +90,7 @@ public class CharacterController2D : MonoBehaviour
 
 	// =====/////===== End of: Unity Lifecycle Functions =====/////=====
 	// ========== Start of: Character Control Functions ==========
-	public void Move(float move, bool crouch, bool jump)
+	public void Move(float move, bool crouch, bool jump, bool dashing)
 	{
 		// If crouching, check to see if the character can stand up
 		if (!crouch)
@@ -172,6 +180,46 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+	private IEnumerator DashCoroutine()
+	{
+		OnDashEvent.Invoke(true);
+		float currentDistance = 0f;
+		Vector2 dashDirection = m_FacingRight ? Vector2.right : Vector2.left;
+
+		while (currentDistance < dashDistance)
+		{
+			float dashDistanceRemaining = dashDistance - currentDistance;
+			float dashDistanceThisFrame = Mathf.Min(dashSpeed * Time.fixedDeltaTime, dashDistanceRemaining);
+
+			// Move the character
+			Vector2 targetVelocity = dashDirection * dashSpeed;
+			m_Rigidbody2D.velocity = targetVelocity;
+
+			currentDistance += dashDistanceThisFrame;
+
+			yield return new WaitForFixedUpdate();
+		}
+		m_Rigidbody2D.velocity = dashDirection * afterDashSpeed;
+        OnDashEvent.Invoke(false);
+    }
+
+    public void Dash()
+	{
+		StartCoroutine(DashCoroutine());
+	}
+
+	/*
+	public void GroundSlide()
+    {
+		groundSliding = true;
+	}
+
+	public void GroundSlideEnd()
+    {
+		groundSliding = false;
+    }
+	*/
 	// ========== End of: Character Control Functions ==========
 	// =//=//=//=//=//= Start of: CharacterController2D Class =//=//=//=//=//=
 }
