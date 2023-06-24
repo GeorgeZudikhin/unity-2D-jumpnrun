@@ -1,5 +1,3 @@
-# project-game
-
 # Side Scroller (Group #14)
 ITP Project - 2. Semester
 
